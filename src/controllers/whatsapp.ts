@@ -33,6 +33,14 @@ class WhatsappController {
         }
         return;
       }
+
+      if (found.stage === "payMethod") {
+        this.#payMethodResponse(message);
+      }
+
+      if (found.stage === "adress") {
+        this.#adressResponse(message);
+      }
     });
 
     this.#client.initialize();
@@ -120,6 +128,31 @@ class WhatsappController {
     } catch (err: any) {
       return res.status(400).json({ error: err?.message });
     }
+  }
+
+  async #payMethodResponse(message: Message) {
+    await db.query(
+      `UPDATE orders SET stage = 'adress' WHERE id = $1 AND stage != 'finish'`,
+      [message.from]
+    );
+
+    this.#client.sendMessage(message.from, `E qual é o endereço de entrega?`);
+  }
+
+  async #adressResponse(message: Message) {
+    await db.query(
+      `UPDATE orders SET stage = 'finish' WHERE id = $1 AND stage != 'finish'`,
+      [message.from]
+    );
+
+    this.#client.sendMessage(
+      message.from,
+      `Seu pedido está sendo preparado e chegará em torno de 30 minutos`
+    );
+    this.#client.sendMessage(
+      message.from,
+      `Estou finalizando nossa conversa, qualquer dúvida pode nos ligar`
+    );
   }
 }
 
