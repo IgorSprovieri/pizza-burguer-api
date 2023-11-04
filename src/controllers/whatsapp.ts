@@ -19,8 +19,20 @@ class WhatsappController {
       this.#isReady = true;
     });
 
-    this.#client.on("message", (message: Message) => {
-      console.log(message.body);
+    this.#client.on("message", async (message: Message) => {
+      const { rows } = await db.query(
+        `SELECT * FROM orders WHERE username = $1 AND stage != 'finish'`,
+        [message.from]
+      );
+
+      const found: Order = rows[0];
+
+      if (!found) {
+        if (message.body === "Olá, desejo fazer um pedido") {
+          await this.#startOrder(message);
+        }
+        return;
+      }
     });
 
     this.#client.initialize();
@@ -32,6 +44,23 @@ class WhatsappController {
     }
 
     return res.status(200).json({ qr: this.#Qr });
+  }
+
+  async #startOrder(message: Message) {
+    await db.query(
+      `INSERT INTO orders (username, stage, "orderlist", checked ) VALUES ($1, 'choosing', '{}', false)`,
+      [message.from]
+    );
+
+    this.#client.sendMessage(message.from, `Olá, aqui é o pizza burguer`);
+    this.#client.sendMessage(
+      message.from,
+      `Escolha os items do seu pedido no link abaixo:`
+    );
+    this.#client.sendMessage(
+      message.from,
+      `${process.env.WEBSITE_URL}/${message.from}`
+    );
   }
 
   async putOrder(req: Request, res: Response) {
