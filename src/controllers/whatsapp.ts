@@ -4,6 +4,7 @@ import { Item, Order } from "@/types";
 import { Request, Response } from "express";
 import { Client, Message } from "whatsapp-web.js";
 import { array, object, string } from "yup";
+import { orderRepository } from "@/db/queries";
 
 class WhatsappController {
   #client: Client = new Client({});
@@ -20,10 +21,7 @@ class WhatsappController {
     });
 
     this.#client.on("message", async (message: Message) => {
-      const { rows } = await db.query(
-        `SELECT * FROM orders WHERE username = $1 AND stage != 'finish'`,
-        [message.from]
-      );
+      const rows = await orderRepository.getOrder(message.from);
 
       const found: Order = rows[0];
 
@@ -55,10 +53,7 @@ class WhatsappController {
   }
 
   async #startOrder(message: Message) {
-    await db.query(
-      `INSERT INTO orders (username, stage, "orderlist", checked ) VALUES ($1, 'choosing', '{}', false)`,
-      [message.from]
-    );
+    await orderRepository.createOrder(message.from);
 
     this.#client.sendMessage(message.from, `Olá, aqui é o pizza burguer`);
     this.#client.sendMessage(
@@ -87,10 +82,7 @@ class WhatsappController {
       type Body = { username: string; selectedItems: Array<Item> };
       const { username, selectedItems: items }: Body = req.body;
 
-      const { rows } = await db.query(
-        `SELECT * FROM orders WHERE username = $1 AND stage != 'finish'`,
-        [username]
-      );
+      const rows = await orderRepository.getOrder(username);
 
       const found: Order = rows[0];
 
@@ -98,10 +90,7 @@ class WhatsappController {
         return res.status(404).json({ error: "Conversation not found" });
       }
 
-      await db.query(
-        `UPDATE orders SET "orderlist" = $1, stage = 'payMethod' WHERE username = $2 AND stage != 'finish'`,
-        [items, found.username]
-      );
+      await orderRepository.updateItems(username, items);
 
       let message = "Seu pedido\n\n";
 
@@ -131,19 +120,13 @@ class WhatsappController {
   }
 
   async #payMethodResponse(message: Message) {
-    await db.query(
-      `UPDATE orders SET stage = 'adress' WHERE id = $1 AND stage != 'finish'`,
-      [message.from]
-    );
+    await orderRepository.updateStage(message.from, "adress");
 
     this.#client.sendMessage(message.from, `E qual é o endereço de entrega?`);
   }
 
   async #adressResponse(message: Message) {
-    await db.query(
-      `UPDATE orders SET stage = 'finish' WHERE id = $1 AND stage != 'finish'`,
-      [message.from]
-    );
+    await orderRepository.updateStage(message.from, "finish");
 
     this.#client.sendMessage(
       message.from,

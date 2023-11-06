@@ -1,0 +1,150 @@
+[
+  {
+    "sectionId": 1,
+    "name": "Muçarela",
+    "price": "49.90",
+    "imageUrl": "/images/muçarela.png",
+    "description": "Nossa deliciosa pizza com massa fina ou grossa e lotada de muçarela"
+  },
+  {
+    "sectionId": 1,
+    "name": "Calabresa",
+    "price": "59.90",
+    "imageUrl": "/images/muçarela.png",
+    "description": "Nossa deliciosa pizza com massa fina ou grossa e lotada de calabresa, cebola e muçarela"
+  },
+  {
+    "sectionId": 1,
+    "name": "4 Queijos",
+    "price": "62.90",
+    "imageUrl": "/images/muçarela.png",
+    "description": "Nossa deliciosa pizza com massa fina e lotada de muçarela, parmesão, queijo prato e gorgonzola"
+  },
+  {
+    "sectionId": 1,
+    "name": "Portuguesa",
+    "price": "62.90",
+    "imageUrl": "/images/muçarela.png",
+    "description": "Nossa deliciosa pizza com massa fina ou grossa e lotada de queijo, presunto, ovos cozidos, cebola, azeitona e ervilha"
+  },
+  {
+    "sectionId": 1,
+    "name": "Frango Catupiry",
+    "price": "54.90",
+    "imageUrl": "/images/muçarela.png",
+    "description": "Nossa deliciosa pizza com massa fina ou grossa e lotada de frango e catupiry"
+  },
+  {
+    "sectionId": 2,
+    "name": "X Burger",
+    "price": "19.90",
+    "imageUrl": "/images/burguer.png",
+    "description": "Um delicioso Hambúrguer de 140g lotado de queijo e com a carne no ponto que você gosta"
+  },
+  {
+    "sectionId": 2,
+    "name": "X Burguer Bacon",
+    "price": "24.90",
+    "imageUrl": "/images/burguer.png",
+    "description": "Um delicioso Hambúrguer de 140g com muito queijo, suculência de carne e lotado de bacon para dar aquela crocância"
+  },
+  {
+    "sectionId": 2,
+    "name": "X Salada",
+    "price": "22.90",
+    "imageUrl": "/images/burguer.png",
+    "description": "Um delicioso Hambúrguer de 140g lotado de queijo, suculência de carne, com alface e tomate para dar aquele toque final"
+  },
+  {
+    "sectionId": 2,
+    "name": "X Burguer Duplo",
+    "price": "32.90",
+    "imageUrl": "/images/burguer.png",
+    "description": "Para quem tem muita fome: Dois deliciosos Hambúrguers de 140g lotados de queijo e com a carne no ponto que você gosta"
+  },
+  {
+    "sectionId": 2,
+    "name": "X Salada Bacon",
+    "price": "29.90",
+    "imageUrl": "/images/burguer.png",
+    "description": "Um delicioso Hambúrguer de 140g lotado de queijo, suculência de carne, com alface, tomate e bacon para dar aquele toque final"
+  },
+  {
+    "sectionId": 3,
+    "name": "Batata Frita",
+    "price": "9.90",
+    "imageUrl": "/images/fries.png",
+    "description": "Aquele porção de batata frita que todo mundo adora"
+  },
+  {
+    "sectionId": 3,
+    "name": "Onion Rings",
+    "price": "12.90",
+    "imageUrl": "/images/onions.png",
+    "description": "Aquele porção de Onion Rings que todo mundo adora"
+  },
+  {
+    "sectionId": 4,
+    "name": "Chocolate",
+    "price": "13.90",
+    "imageUrl": "/images/milk-shakes.png",
+    "description": "Meio litro do nosso delicioso milkshake feito com sorvete de creme, leite e barra de chocolate"
+  },
+  {
+    "sectionId": 4,
+    "name": "Morango",
+    "price": "13.90",
+    "imageUrl": "/images/milk-shakes.png",
+    "description": "Meio litro do nosso delicioso milkshake feito com sorvete de creme, leite e pedaços de morango"
+  },
+  {
+    "id": 14,
+    "sectionId": 4,
+    "name": "Ovomaltine",
+    "price": "13.90",
+    "imageUrl": "/images/milk-shakes.png",
+    "description": "Meio litro do nosso delicioso milkshake feito com sorvete de creme, leite e ovomaltine"
+  },
+  {
+    "sectionId": 5,
+    "name": "Água",
+    "price": "3.50",
+    "imageUrl": "/images/water.png",
+    "description": "Água normal em garrafa de 500ml"
+  },
+  {
+    "sectionId": 5,
+    "name": "Água com Gás",
+    "price": "5.50",
+    "imageUrl": "/images/water-gas.png",
+    "description": "Água com gás em garrafa de 500ml"
+  },
+  {
+    "sectionId": 5,
+    "name": "Coca Cola",
+    "price": "4.50",
+    "imageUrl": "/images/coca-cola.png",
+    "description": "Coca-cola de lata (350ml)"
+  },
+  {
+    "sectionId": 5,
+    "name": "Coca Cola Zero",
+    "price": "4.50",
+    "imageUrl": "/images/coca-cola-zero.png",
+    "description": "Coca-cola zero de lata (350ml)"
+  },
+  {
+    "sectionId": 5,
+    "name": "Guaraná",
+    "price": "4.50",
+    "imageUrl": "/images/guarana.png",
+    "description": "Guaraná lata (350ml)"
+  },
+  {
+    "sectionId": 5,
+    "name": "H2O",
+    "price": "6.00",
+    "imageUrl": "/images/h2o.png",
+    "description": "H2O de limão em garrafa de 500ml"
+  }
+]

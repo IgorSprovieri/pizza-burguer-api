@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Pizzas",
+    "iconUrl": "/icons/pizza.svg",
+    "invertIconUrl": "/icons/pizza-black.svg"
+  },
+  {
+    "title": "Hambúrguers",
+    "iconUrl": "/icons/burguer.svg",
+    "invertIconUrl": "/icons/burguer-black.svg"
+  },
+  {
+    "title": "Acompanhamentos",
+    "iconUrl": "/icons/fries.svg",
+    "invertIconUrl": "/icons/fries-black.svg"
+  },
+  {
+    "title": "Milk Shakes",
+    "iconUrl": "/icons/milk-shake.svg",
+    "invertIconUrl": "/icons/milk-shake-black.svg"
+  },
+  {
+    "title": "Bebidas",
+    "iconUrl": "/icons/drink.svg",
+    "invertIconUrl": "/icons/drink-black.svg"
+  }
+]
