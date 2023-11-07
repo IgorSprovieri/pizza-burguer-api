@@ -19,7 +19,7 @@ https://api.wpp.ispapps.com
 - Express
 - Typescript
 - Whatsapp-web.js
-- qrcode Terminal
+- Qrcode Terminal
 - Yup
 
 ## Getting Started
