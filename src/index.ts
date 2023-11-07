@@ -21,8 +21,6 @@ app.use(express.json());
 
 app.post("/send", async (req: Request, res: Response) => {
   try {
-    console.log(req.body);
-
     const schema = object({
       username: string().required(),
       message: string().required(),
@@ -42,6 +40,7 @@ app.post("/send", async (req: Request, res: Response) => {
 });
 
 client.on("qr", (qr: string) => {
+  console.log(qr);
   qrcode.generate(qr, { small: true });
 });
 
