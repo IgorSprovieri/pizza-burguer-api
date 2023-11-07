@@ -11,7 +11,7 @@ https://api.wpp.ispapps.com
 ## Features
 
 - Create a webhook to intercept messages
-- Send messages for everyone
+- Send messages to everyone
 
 ## Used Technologies
 
