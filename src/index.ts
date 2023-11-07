@@ -8,10 +8,13 @@ import axios from "axios";
 
 const client = new Client({
   authStrategy: new LocalAuth(),
+  puppeteer: {
+    args: ["--no-sandbox"],
+  },
 });
 
 const app: Application = express();
-const port: Number = Number(process.env.API_PORT) || 3333;
+const port: number = Number(process.env.PORT) || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -61,7 +64,7 @@ client.on("message", async (msg: Message) => {
   }
 });
 
-app.listen(port, async () => {
+app.listen(port, "0.0.0.0", async () => {
   await client.initialize();
   console.log(`Whatsapp API listening on port ${port}`);
 });
