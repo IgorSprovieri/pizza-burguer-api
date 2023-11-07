@@ -1,6 +1,6 @@
 # Whatsapp API
 
-This api is a simple solution for create chatbot's using whatsapp
+This api is a simple solution to create chatbot's using whatsapp
 
 ## Live Application
 
